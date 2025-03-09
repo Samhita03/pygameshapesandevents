@@ -1,0 +1,28 @@
+import pygame
+WIDTH= 600
+HEIGHT=600
+TITLE="rectangle"
+screen=pygame.display.set_mode((WIDTH,HEIGHT))
+pygame.display.set_caption(TITLE)
+
+class Rectangle():
+    def __init__(self,c,l,b,x,y):
+        self.color=c
+        self.length=l
+        self.breadth=b
+        self.recx=x
+        self.recy=y
+    def draw(self):
+        pygame.draw.rect(screen,self.color,self.length,self.breadth(self.recx,self.recy),0)
+rectangle= Rectangle("blue",90,300,600,600)
+
+
+
+run=True
+while run==True:
+    screen.fill("black")
+    rectangle.draw()
+    for event in pygame.event.get():
+        if event.type==pygame.QUIT:
+            run=False
+    pygame.display.update()
